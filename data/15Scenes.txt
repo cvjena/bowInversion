@@ -1,0 +1,15 @@
+/home/freytag/data/15scenes/imagesScaled/filelist_bedroom.txt
+/home/freytag/data/15scenes/imagesScaled/filelist_CALsuburb.txt
+/home/freytag/data/15scenes/imagesScaled/filelist_industrial.txt
+/home/freytag/data/15scenes/imagesScaled/filelist_kitchen.txt
+/home/freytag/data/15scenes/imagesScaled/filelist_livingroom.txt
+/home/freytag/data/15scenes/imagesScaled/filelist_MITcoast.txt
+/home/freytag/data/15scenes/imagesScaled/filelist_MITforest.txt
+/home/freytag/data/15scenes/imagesScaled/filelist_MIThighway.txt
+/home/freytag/data/15scenes/imagesScaled/filelist_MITinsidecity.txt
+/home/freytag/data/15scenes/imagesScaled/filelist_MITmountain.txt
+/home/freytag/data/15scenes/imagesScaled/filelist_MITopencountry.txt
+/home/freytag/data/15scenes/imagesScaled/filelist_MITstreet.txt
+/home/freytag/data/15scenes/imagesScaled/filelist_MITtallbuilding.txt
+/home/freytag/data/15scenes/imagesScaled/filelist_PARoffice.txt
+/home/freytag/data/15scenes/imagesScaled/filelist_store.txt

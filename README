@@ -1,0 +1,75 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                             COPYRIGHT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+This package contains Matlab source code for visualizing quantization effects for bag-of-visual-words representationsi as described in:
+
+Alexander Freytag and Johannes Ruehle and Paul Bodesheim and Erik Rodner and Joachim Denzler:
+"Seeing through bag-of-visual-word glasses: towards understanding quantization effects in feature extraction methods".
+ICPR Workshop on Features and Structures (FEAST), 2014
+
+Please cite that paper if you are using this code!
+
+(LGPL) copyright by Alexander Freytag and Johannes Ruehle and Paul Bodesheim and Erik Rodner and Joachim Denzler
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                           START / SETUP
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% adapt this file according to your system, including path to 3party projects.
+% Mirrors for downloading libraries not yet existing in your systems are displayed.
+initWorkspace
+
+
+% NOTE - additional data needed
+Calling inverseHog for the first time will download the paired-ditionary file, which is around 15MB.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                             DEMO 1
+            Invert a given image, following the BoW paradigm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%run the whole *inversion* pipeline, including local feature extraction, codebook generation, inversion, and impainting
+out = demo1_inversionPipeline
+
+% visualize the resulting image
+figure; imshow ( out.imgHoggleBow )
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                             DEMO 2
+     Invert a given image and randomly shuffle its parts
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%run the whole pipeline, including local feature extraction, codebook generation, inversion, and impainting
+out = demo2_imageInvertedAndJittered
+
+% visualize the resulting image
+figure; imshow ( out.imgHoggleBow )
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                             DEMO 3
+               Evaluate a standard BoW-pipeline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% NOTE - dataset needed
+% This demo uses the 15 scenes dataset. You need to adapt data/init15Scenes.m according to the location of the 15scenes dataset on your machine.
+% The dataset is avaible at http://www.cs.illinois.edu/homes/slazebni/research/scene_categories.zip
+
+% NOTE - setup 15Scenes dataset
+% after downloading the dataset and extracing it to /HOME/MYHOME/MYFOLDER15SCENES/
+% go to folder of dataset
+cd /HOME/MYHOME/MYFOLDER15SCENES/
+% run the script provided with this repo to write all image filenames into class-specific filelists
+/HOME/MYHOME/MYCODE/bowClassification.git/data/list_files.sh jpg 15Scenes.txt filelist
+% copy file with references to the filelists into the data directory (alternative, change the path to this file in the demo3_script)
+cp /HOME/MYHOME/MYFOLDER15SCENES/15Scenes.txt /HOME/MYHOME/MYCODE/bowClassification.git/data/15Scenes.txt
+
+%run the whole *classification* pipeline, including local feature extraction, codebook generation, quantization, training, and testing
+out = demo3_evaluateBoWPerformance
+
+% NOTE - small subset only
+% per default, demo3 only runs on a subset of the 15scenes dataset. You might want to change the settings in order to evaluate the pipeline on the whole dataset, or even a completely different one.
